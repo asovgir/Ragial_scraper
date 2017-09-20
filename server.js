@@ -6,36 +6,27 @@ var app     = express();
 
 app.get('/scrape', function(req, res){
 
-url = 'http://www.imdb.com/title/tt1229340/';
+	url = 'http://www.ragi.al/item/iRO-Odin/ZDI/';
 
-request(url, function(error, response, html){
-    if(!error){
-        var $ = cheerio.load(html);
+	request(url, function(error, response, html){
+	    if(!error){
+	        var $ = cheerio.load(html);
 
-    var title, release, rating;
-    var json = { title : "", release : "", rating : ""};
+	    var item, quantity, price;
+	    var json = { item : "", quantity : "", price : ""};
 
-    $('.title_wrapper').filter(function(){
-        var data = $(this);
-        title = data.children().first().text();            
-        release = data.children().last().children().text();
+	    $('.mkt_left').filter(function(){
+	        var data = $(this);
+	        item = data.text();         
 
-        json.title = title;
-        json.release = release;
-    })
+	        json.item = item;
+	    })
+	}
 
-    $('.ratingValue').filter(function(){
-        var data = $(this);
-        rating = data.text();
+	// Finally, we'll just send out a message to the browser reminding you that this app does not have a UI.
+	res.send(json)
 
-        json.rating = rating;
-    })
-}
-
-// Finally, we'll just send out a message to the browser reminding you that this app does not have a UI.
-res.send(json)
-
-    }) ;
+	}) ;
 })
 
 
@@ -45,3 +36,8 @@ app.listen('8081')
 console.log('Magic happens on port 8081');
 
 exports = module.exports = app;
+
+
+/* TLDR does not work because of header perhaps?
+Receiving too many requests error
+Possibly helpful link on stack: "How to avoid HTTP error 429 (Too Many Requests) python"
