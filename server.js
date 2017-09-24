@@ -6,7 +6,12 @@ var app     = express();
 
 app.get('/scrape', function(req, res){
 
-	url = 'http://www.ragi.al/item/iRO-Odin/ZDI/';
+	var url = {
+		url: 'http://www.ragi.al/item/iRO-Odin/ZDI/',
+		headers: {
+		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+		}
+	}
 
 	request(url, function(error, response, html){
 	    if(!error){
@@ -37,7 +42,3 @@ console.log('Magic happens on port 8081');
 
 exports = module.exports = app;
 
-
-/* TLDR does not work because of header perhaps?
-Receiving too many requests error
-Possibly helpful link on stack: "How to avoid HTTP error 429 (Too Many Requests) python"
