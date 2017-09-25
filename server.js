@@ -26,11 +26,11 @@ app.get('/scrape', function(req, res){
 	        json.item = item;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
-	        quantity = parseInt(data.text());
+	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
-	        price = parseInt(data.text());;
+	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	    })
 	}
