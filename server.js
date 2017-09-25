@@ -21,10 +21,17 @@ app.get('/scrape', function(req, res){
 	    var json = { item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
-	        var data = $(this);
+	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
-
 	        json.item = item;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        quantity = data.text();
+	        json.quantity = quantity;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        price = data.text();
+	        json.price = price;
 	    })
 	}
 
