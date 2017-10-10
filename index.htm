@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var jsonRequestUrl = 'http://localhost:8081/scrape';
+
+			$(document).ready(function(){
+				$.getJSON(jsonRequestUrl,  function(json){
+					$('#itemName').text(json.item);
+					$('#itemPrice').text(json.price);
+					$('#itemQuantity').text(json.quantity);
+
+				})
+			})
+		</script>
+		<title>Scraper</title>
+	</head>
+	<body>
+	<h1>Ragi Scraper</h1>
+		Item Name:
+		<div id="itemName"></div>
+		<p>
+		Item Price:
+		<div id="itemPrice"></div>
+		</p>
+		<p>
+		Item Quantity:
+		<div id="itemQuantity"></div>
+		</p>
+	</body>
+</html>
