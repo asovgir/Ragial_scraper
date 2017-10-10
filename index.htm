@@ -6,9 +6,15 @@
 
 			$(document).ready(function(){
 				$.getJSON(jsonRequestUrl,  function(json){
-					$('#itemName').text(json.item);
-					$('#itemPrice').text(json.price);
-					$('#itemQuantity').text(json.quantity);
+					$('#itemName').append(json.item);
+					$('#itemPrice').append(json.price);
+					$('#itemQuantity').append(json.quantity);
+
+					if (json.price < 2199999){
+						$('html').css("background-color", "green");
+					} else {
+						location.reload();
+					}
 
 				})
 			})
