@@ -5,10 +5,11 @@
 			var jsonRequestUrl = 'http://localhost:8081/scrape';
 			var jsonRequestUrl2 = 'http://localhost:8081/scrape2';
 			var jsonRequestUrl3 = 'http://localhost:8081/scrape3';
+			var jsonRequestUrl4 = 'http://localhost:8081/scrape4';
+			var jsonRequestUrl5 = 'http://localhost:8081/scrape5';
+			var jsonRequestUrl6 = 'http://localhost:8081/scrape6';
 			var json1;
-			var json2;
-			var json3;
-			var priceResult;
+
 			$(document).ready(function(){
 				
 	
@@ -23,7 +24,7 @@
 						$('#itemQuantity1').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 < 1500000) {
+						if (json1 > 0 & json1 < 1500000) {
 							$('#itemName1, #itemPrice1, #itemQuantity1').css("background-color","green");
 							alert(json.item + ' price less than 2000000');
 							e.preventDefault();
@@ -42,15 +43,15 @@
 						$('#itemQuantity2').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 < 2000000) {
+						if (json1 > 0 & json1 < 75001) {
 							$('#itemName2, #itemPrice2, #itemQuantity2').css("background-color","green");
-							alert(json.item + ' price less than 2000000');
+							alert(json.item + ' price less than 75001');
 							e.preventDefault();
 						}
 					}
 				});
 
-				// JSON3
+				// JSON3 -> Silvervine
 				$.ajax({
 					url: jsonRequestUrl3,
 					async: false,
@@ -61,15 +62,72 @@
 						$('#itemQuantity3').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 < 2000000) {
+						if (json1 > 0 & json1 < 450000) {
 							$('#itemName3, #itemPrice3, #itemQuantity3').css("background-color","green");
-							alert(json.item + ' price less than 2000000');
+							alert(json.item + ' price less than 450000');
 							e.preventDefault();
 						}
 					}
 				});
 
-			//	location.reload();
+				// JSON4 -> Biotite
+				$.ajax({
+					url: jsonRequestUrl4,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemName4').append(json.item);
+						$('#itemPrice4').append(json.price);
+						$('#itemQuantity4').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 1950000) {
+							$('#itemName4, #itemPrice4, #itemQuantity4').css("background-color","green");
+							alert(json.item + ' price less than 1950000');
+							e.preventDefault();
+						}
+					}
+				});
+
+				// JSON5 -> Cyfar
+				$.ajax({
+					url: jsonRequestUrl5,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemName5').append(json.item);
+						$('#itemPrice5').append(json.price);
+						$('#itemQuantity5').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 1301 & json.quantity > 400) {
+							$('#itemName5, #itemPrice5, #itemQuantity5').css("background-color","green");
+							alert(json.item + ' price less than 1301 and quantity of ' + json.quantity );
+							e.preventDefault();
+						}
+					}
+				});
+
+				// JSON6 -> WellDried Bone
+				$.ajax({
+					url: jsonRequestUrl6,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemName6').append(json.item);
+						$('#itemPrice6').append(json.price);
+						$('#itemQuantity6').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & jason < 150001) {
+							$('#itemName6, #itemPrice6, #itemQuantity6').css("background-color","green");
+							alert(json.item + ' price less than 150001');
+							e.preventDefault();
+						}
+					}
+				});
+
+				location.reload();
 
 			}) // Close document.ready
 		</script>
@@ -109,6 +167,24 @@
 				<td><div id="itemPrice3"></div></td>
 				<td><div id="itemQuantity3"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/r0U/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemName4"></div></td>
+				<td><div id="itemPrice4"></div></td>
+				<td><div id="itemQuantity4"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/gRw/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemName5"></div></td>
+				<td><div id="itemPrice5"></div></td>
+				<td><div id="itemQuantity5"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/gRw/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemName6"></div></td>
+				<td><div id="itemPrice6"></div></td>
+				<td><div id="itemQuantity6"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/dAI/">Url</a></div></td>
 			</tr>
 		</table>
 	</body>
