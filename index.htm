@@ -26,6 +26,7 @@
 						if (json1 < 1500000) {
 							$('#itemName1, #itemPrice1, #itemQuantity1').css("background-color","green");
 							alert(json.item + ' price less than 2000000');
+							e.preventDefault();
 						}
 					}
 				});
@@ -44,6 +45,7 @@
 						if (json1 < 2000000) {
 							$('#itemName2, #itemPrice2, #itemQuantity2').css("background-color","green");
 							alert(json.item + ' price less than 2000000');
+							e.preventDefault();
 						}
 					}
 				});
@@ -62,11 +64,12 @@
 						if (json1 < 2000000) {
 							$('#itemName3, #itemPrice3, #itemQuantity3').css("background-color","green");
 							alert(json.item + ' price less than 2000000');
+							e.preventDefault();
 						}
 					}
 				});
 
-				location.reload();
+			//	location.reload();
 
 			}) // Close document.ready
 		</script>
