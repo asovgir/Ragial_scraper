@@ -8,7 +8,9 @@
 			var jsonRequestUrl4 = 'http://localhost:8081/scrape4';
 			var jsonRequestUrl5 = 'http://localhost:8081/scrape5';
 			var jsonRequestUrl6 = 'http://localhost:8081/scrape6';
+			var jsonRequestUrl7 = 'http://localhost:8081/scrape7';
 			var json1;
+			var count = 0;
 
 			$(document).ready(function(){
 				
@@ -28,7 +30,7 @@
 						if (json1 > 0 & json1 < 1500000 & json.vending === "Vending Now") {
 							$('#itemName1, #itemPrice1, #itemQuantity1').css("background-color","green");
 							alert(json.item + ' price less than 2000000');
-							e.preventDefault();
+							count = 1;
 						}
 					}
 				});
@@ -48,7 +50,7 @@
 						if (json1 > 0 & json1 < 75001 & json.vending === "Vending Now") {
 							$('#itemName2, #itemPrice2, #itemQuantity2').css("background-color","green");
 							alert(json.item + ' price less than 75001');
-							e.preventDefault();
+							count = 1;
 						}
 					}
 				});
@@ -68,7 +70,7 @@
 						if (json1 > 0 & json1 < 450000 & json.vending === "Vending Now") {
 							$('#itemName3, #itemPrice3, #itemQuantity3').css("background-color","green");
 							alert(json.item + ' price less than 450000');
-							e.preventDefault();
+							count = 1;
 						}
 					}
 				});
@@ -88,7 +90,7 @@
 						if (json1 > 0 & json1 < 1950000 & json.vending === "Vending Now") {
 							$('#itemName4, #itemPrice4, #itemQuantity4').css("background-color","green");
 							alert(json.item + ' price less than 1950000');
-							e.preventDefault();
+							count = 1;
 						}
 					}
 				});
@@ -108,7 +110,7 @@
 						if (json1 > 0 & json1 < 1301 & json.quantity > 400 & json.vending === "Vending Now") {
 							$('#itemName5, #itemPrice5, #itemQuantity5').css("background-color","green");
 							alert(json.item + ' price less than 1301 and quantity of ' + json.quantity );
-							e.preventDefault();
+							count = 1;
 						}
 					}
 				});
@@ -128,12 +130,37 @@
 						if (json1 > 0 & json1 < 150001 & json.vending === "Vending Now") {
 							$('#itemName6, #itemPrice6, #itemQuantity6').css("background-color","green");
 							alert(json.item + ' price less than 150001');
-							e.preventDefault();
+							count = 1;
 						}
 					}
 				});
 
-				// location.reload();
+				// JSON6 -> Emperium
+				$.ajax({
+					url: jsonRequestUrl7,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemVending7').append(json.vending);
+						$('#itemName7').append(json.item);
+						$('#itemPrice7').append(json.price);
+						$('#itemQuantity7').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 150001 & json.vending === "Vending Now") {
+							$('#itemName7, #itemPrice7, #itemQuantity7').css("background-color","green");
+							alert(json.item + ' price less than 150001');
+							count = 1;
+						}
+					}
+				});
+
+				if(count === 0) {
+				setTimeout(
+					function(){
+							// location.reload();
+					}, 3000);
+				}
 
 			}) // Close document.ready
 		</script>
@@ -198,6 +225,13 @@
 				<td><div id="itemPrice6"></div></td>
 				<td><div id="itemQuantity6"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/dAI/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemVending7"></div></td>
+				<td><div id="itemName7"></div></td>
+				<td><div id="itemPrice7"></div></td>
+				<td><div id="itemQuantity7"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/ygI/">Url</a></div></td>
 			</tr>
 		</table>
 	</body>
