@@ -27,18 +27,21 @@ app.get('/scrape', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json = { vending : "", item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
 	        json.item = item;
 
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
-
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	
@@ -67,18 +70,22 @@ app.get('/scrape2', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json = { vending : "", item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
 	        json.item = item;
 
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
 
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	
@@ -106,18 +113,22 @@ app.get('/scrape3', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json = { vending : "", item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
 	        json.item = item;
 
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
 
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	
@@ -145,18 +156,22 @@ app.get('/scrape4', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json = { vending : "", item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
 	        json.item = item;
 
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
 
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	
@@ -185,18 +200,22 @@ app.get('/scrape5', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json = { vending : "", item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
 	        json.item = item;
 
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
 
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	
@@ -225,18 +244,22 @@ app.get('/scrape6', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json = { vending : "", item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
 	        json.item = item;
 
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
 	        json.quantity = quantity;
 
-	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)').not('a.notip');
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json.price = price;
 	

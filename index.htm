@@ -19,6 +19,7 @@
 					async: false,
 					dataType: 'json',
 					success: function(json){
+						$('#itemVending1').append(json.vending);
 						$('#itemName1').append(json.item);
 						$('#itemPrice1').append(json.price);
 						$('#itemQuantity1').append(json.quantity);
@@ -38,6 +39,7 @@
 					async: false,
 					dataType: 'json',
 					success: function(json){
+						$('#itemVending2').append(json.vending);
 						$('#itemName2').append(json.item);
 						$('#itemPrice2').append(json.price);
 						$('#itemQuantity2').append(json.quantity);
@@ -57,6 +59,7 @@
 					async: false,
 					dataType: 'json',
 					success: function(json){
+						$('#itemVending3').append(json.vending);
 						$('#itemName3').append(json.item);
 						$('#itemPrice3').append(json.price);
 						$('#itemQuantity3').append(json.quantity);
@@ -76,6 +79,7 @@
 					async: false,
 					dataType: 'json',
 					success: function(json){
+						$('#itemVending4').append(json.vending);
 						$('#itemName4').append(json.item);
 						$('#itemPrice4').append(json.price);
 						$('#itemQuantity4').append(json.quantity);
@@ -95,6 +99,7 @@
 					async: false,
 					dataType: 'json',
 					success: function(json){
+						$('#itemVending5').append(json.vending);
 						$('#itemName5').append(json.item);
 						$('#itemPrice5').append(json.price);
 						$('#itemQuantity5').append(json.quantity);
@@ -114,6 +119,7 @@
 					async: false,
 					dataType: 'json',
 					success: function(json){
+						$('#itemVending6').append(json.vending);
 						$('#itemName6').append(json.item);
 						$('#itemPrice6').append(json.price);
 						$('#itemQuantity6').append(json.quantity);
@@ -127,7 +133,7 @@
 					}
 				});
 
-				location.reload();
+				// location.reload();
 
 			}) // Close document.ready
 		</script>
@@ -145,42 +151,49 @@
 	<h1>Needed List</h1>
 		<table>
 			<tr>
+				<th>Vending</th>
 				<th>Item Name</th>
 				<th>Item Price</th>
 				<th>Item Quantity</th>
 				<th>URL</th>
 			</tr>
 			<tr>
+				<td><div id="itemVending1"></div></td>
 				<td><div id="itemName1"></div></td>
 				<td><div id="itemPrice1"></div></td>
 				<td><div id="itemQuantity1"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/ZDI/">Url</a></div></td>
 			</tr>
 			<tr>
+				<td><div id="itemVending2"></div></td>
 				<td><div id="itemName2"></div></td>
 				<td><div id="itemPrice2"></div></td>
 				<td><div id="itemQuantity2"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/jRs/">Url</a></div></td>
 			</tr>
 			<tr>
+				<td><div id="itemVending3"></div></td>
 				<td><div id="itemName3"></div></td>
 				<td><div id="itemPrice3"></div></td>
 				<td><div id="itemQuantity3"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/r0U/">Url</a></div></td>
 			</tr>
 			<tr>
+				<td><div id="itemVending4"></div></td>
 				<td><div id="itemName4"></div></td>
 				<td><div id="itemPrice4"></div></td>
 				<td><div id="itemQuantity4"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/gRw/">Url</a></div></td>
 			</tr>
 			<tr>
+				<td><div id="itemVending5"></div></td>
 				<td><div id="itemName5"></div></td>
 				<td><div id="itemPrice5"></div></td>
 				<td><div id="itemQuantity5"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/gRw/">Url</a></div></td>
 			</tr>
 			<tr>
+				<td><div id="itemVending6"></div></td>
 				<td><div id="itemName6"></div></td>
 				<td><div id="itemPrice6"></div></td>
 				<td><div id="itemQuantity6"></div></td>
