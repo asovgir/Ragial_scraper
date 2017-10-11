@@ -41,15 +41,54 @@ app.get('/scrape', function(req, res){
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
 	        json1.price = price;
+	
 	        
 	    })
 	}
-
 	res.send(json1)
 	});
 
 })
 
+
+app.get('/scrape2', function(req, res){
+
+
+	var url = {
+		// Battle Manual
+		url: 'http://www.ragi.al/item/iRO-Odin/WwI/',
+		headers: {
+		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+		}
+	}
+
+	request(url, function(error, response, html){
+	    if(!error){
+	        var $ = cheerio.load(html);
+
+	    var item, quantity, price;
+	    var json1 = { item : "", quantity : "", price : ""};
+
+	    $('.mkt_left').filter(function(){
+	        var data = $('.mkt_left h1 a');
+	        item = data.text();         
+	        json1.item = item;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        quantity = parseFloat(data.text());
+	        json1.quantity = quantity;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
+	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
+	        json1.price = price;
+	
+	        
+	    })
+	}
+	res.send(json1)
+	});
+
+})
 
 
 app.listen('8081')

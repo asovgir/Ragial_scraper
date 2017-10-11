@@ -3,22 +3,39 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			var jsonRequestUrl = 'http://localhost:8081/scrape';
-
+			var jsonRequestUrl2 = 'http://localhost:8081/scrape2';
+			var jsonOne;
 			$(document).ready(function(){
 				
+	
 				// JSON1
-				$.getJSON(jsonRequestUrl,  function(json1){
-					$('#itemName1').append(json1.item);
-					$('#itemPrice1').append(json1.price);
-					$('#itemQuantity1').append(json1.quantity);
+				$.ajax({
+					url: jsonRequestUrl,
+					async: false,
+					dataType: 'json',
+					success: function(json1){
+						$('#itemName1').append(json1.item);
+						$('#itemPrice1').append(json1.price);
+						$('#itemQuantity1').append(json1.quantity);
+						jsonOne = json1.price;
+					}
+
+				});
+
+alert(jsonOne);
+
+				// JSON2
+				/* $.getJSON(jsonRequestUrl2,  function(json2){
+					$('#itemName2').append(json2.item);
+					$('#itemPrice2').append(json2.price);
+					$('#itemQuantity2').append(json2.quantity);
 
 					if (json1.price < 2199999){
 						$('html').css("background-color", "green");
 					} else {
 						location.reload();
 					}
-				});
-
+				}); */
 
 
 
