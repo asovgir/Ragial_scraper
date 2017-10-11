@@ -8,6 +8,7 @@
 			var json1;
 			var json2;
 			var json3;
+			var priceResult;
 			$(document).ready(function(){
 				
 	
@@ -21,58 +22,53 @@
 						$('#itemPrice1').append(json.price);
 						$('#itemQuantity1').append(json.quantity);
 						json1 = json.price;
+
+						if (json1 < 1500000) {
+							$('#itemName1, #itemPrice1, #itemQuantity1').css("background-color","green");
+							alert(json.item + ' price less than 2000000');
+						}
 					}
 				});
 
 				// JSON2
 				$.ajax({
-					url: jsonRequestUrl,
+					url: jsonRequestUrl2,
 					async: false,
 					dataType: 'json',
 					success: function(json){
-						$('#itemName1').append(json.item);
-						$('#itemPrice1').append(json.price);
-						$('#itemQuantity1').append(json.quantity);
+						$('#itemName2').append(json.item);
+						$('#itemPrice2').append(json.price);
+						$('#itemQuantity2').append(json.quantity);
 						json1 = json.price;
+
+						if (json1 < 2000000) {
+							$('#itemName2, #itemPrice2, #itemQuantity2').css("background-color","green");
+							alert(json.item + ' price less than 2000000');
+						}
 					}
 				});
 
 				// JSON3
 				$.ajax({
-					url: jsonRequestUrl,
+					url: jsonRequestUrl3,
 					async: false,
 					dataType: 'json',
 					success: function(json){
-						$('#itemName1').append(json.item);
-						$('#itemPrice1').append(json.price);
-						$('#itemQuantity1').append(json.quantity);
+						$('#itemName3').append(json.item);
+						$('#itemPrice3').append(json.price);
+						$('#itemQuantity3').append(json.quantity);
 						json1 = json.price;
+
+						if (json1 < 2000000) {
+							$('#itemName3, #itemPrice3, #itemQuantity3').css("background-color","green");
+							alert(json.item + ' price less than 2000000');
+						}
 					}
 				});
 
-// location.reload();
+				location.reload();
 
-				// JSON2
-				/* $.getJSON(jsonRequestUrl2,  function(json2){
-					$('#itemName2').append(json2.item);
-					$('#itemPrice2').append(json2.price);
-					$('#itemQuantity2').append(json2.quantity);
-
-					if (json1.price < 2199999){
-						$('html').css("background-color", "green");
-					} else {
-						location.reload();
-					}
-				}); */
-
-
-
-
-
-
-
-
-			})
+			}) // Close document.ready
 		</script>
 		<style>
 		table, th, td {
