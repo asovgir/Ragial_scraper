@@ -4,7 +4,10 @@
 		<script type="text/javascript">
 			var jsonRequestUrl = 'http://localhost:8081/scrape';
 			var jsonRequestUrl2 = 'http://localhost:8081/scrape2';
-			var jsonOne;
+			var jsonRequestUrl3 = 'http://localhost:8081/scrape3';
+			var json1;
+			var json2;
+			var json3;
 			$(document).ready(function(){
 				
 	
@@ -13,16 +16,41 @@
 					url: jsonRequestUrl,
 					async: false,
 					dataType: 'json',
-					success: function(json1){
-						$('#itemName1').append(json1.item);
-						$('#itemPrice1').append(json1.price);
-						$('#itemQuantity1').append(json1.quantity);
-						jsonOne = json1.price;
+					success: function(json){
+						$('#itemName1').append(json.item);
+						$('#itemPrice1').append(json.price);
+						$('#itemQuantity1').append(json.quantity);
+						json1 = json.price;
 					}
-
 				});
 
-alert(jsonOne);
+				// JSON2
+				$.ajax({
+					url: jsonRequestUrl,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemName1').append(json.item);
+						$('#itemPrice1').append(json.price);
+						$('#itemQuantity1').append(json.quantity);
+						json1 = json.price;
+					}
+				});
+
+				// JSON3
+				$.ajax({
+					url: jsonRequestUrl,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemName1').append(json.item);
+						$('#itemPrice1').append(json.price);
+						$('#itemQuantity1').append(json.quantity);
+						json1 = json.price;
+					}
+				});
+
+// location.reload();
 
 				// JSON2
 				/* $.getJSON(jsonRequestUrl2,  function(json2){
@@ -51,6 +79,9 @@ alert(jsonOne);
 			border:1px solid black;
 		}
 		</style>
+
+
+
 		<title>Scraper</title>
 	</head>
 	<body>
@@ -73,6 +104,12 @@ alert(jsonOne);
 				<td><div id="itemPrice2"></div></td>
 				<td><div id="itemQuantity2"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/jRs/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemName3"></div></td>
+				<td><div id="itemPrice3"></div></td>
+				<td><div id="itemQuantity3"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/r0U/">Url</a></div></td>
 			</tr>
 		</table>
 	</body>

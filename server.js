@@ -27,25 +27,25 @@ app.get('/scrape', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json1 = { item : "", quantity : "", price : ""};
+	    var json = { item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
-	        json1.item = item;
+	        json.item = item;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
-	        json1.quantity = quantity;
+	        json.quantity = quantity;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
-	        json1.price = price;
+	        json.price = price;
 	
 	        
 	    })
 	}
-	res.send(json1)
+	res.send(json)
 	});
 
 })
@@ -67,25 +67,25 @@ app.get('/scrape2', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json1 = { item : "", quantity : "", price : ""};
+	    var json = { item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
-	        json1.item = item;
+	        json.item = item;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
-	        json1.quantity = quantity;
+	        json.quantity = quantity;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
-	        json1.price = price;
+	        json.price = price;
 	
 	        
 	    })
 	}
-	res.send(json1)
+	res.send(json)
 	});
 
 })
