@@ -25,7 +25,7 @@
 						$('#itemQuantity1').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 1500000) {
+						if (json1 > 0 & json1 < 1500000 & json.vending === "Vending Now") {
 							$('#itemName1, #itemPrice1, #itemQuantity1').css("background-color","green");
 							alert(json.item + ' price less than 2000000');
 							e.preventDefault();
@@ -45,7 +45,7 @@
 						$('#itemQuantity2').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 75001) {
+						if (json1 > 0 & json1 < 75001 & json.vending === "Vending Now") {
 							$('#itemName2, #itemPrice2, #itemQuantity2').css("background-color","green");
 							alert(json.item + ' price less than 75001');
 							e.preventDefault();
@@ -65,7 +65,7 @@
 						$('#itemQuantity3').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 450000) {
+						if (json1 > 0 & json1 < 450000 & json.vending === "Vending Now") {
 							$('#itemName3, #itemPrice3, #itemQuantity3').css("background-color","green");
 							alert(json.item + ' price less than 450000');
 							e.preventDefault();
@@ -85,7 +85,7 @@
 						$('#itemQuantity4').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 1950000) {
+						if (json1 > 0 & json1 < 1950000 & json.vending === "Vending Now") {
 							$('#itemName4, #itemPrice4, #itemQuantity4').css("background-color","green");
 							alert(json.item + ' price less than 1950000');
 							e.preventDefault();
@@ -105,7 +105,7 @@
 						$('#itemQuantity5').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 1301 & json.quantity > 400) {
+						if (json1 > 0 & json1 < 1301 & json.quantity > 400 & json.vending === "Vending Now") {
 							$('#itemName5, #itemPrice5, #itemQuantity5').css("background-color","green");
 							alert(json.item + ' price less than 1301 and quantity of ' + json.quantity );
 							e.preventDefault();
@@ -125,7 +125,7 @@
 						$('#itemQuantity6').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & jason < 150001) {
+						if (json1 > 0 & json1 < 150001 & json.vending === "Vending Now") {
 							$('#itemName6, #itemPrice6, #itemQuantity6').css("background-color","green");
 							alert(json.item + ' price less than 150001');
 							e.preventDefault();
