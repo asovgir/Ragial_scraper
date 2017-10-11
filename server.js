@@ -15,6 +15,7 @@ app.get('/scrape', function(req, res){
 
 
 	var url = {
+		// Battle Manual
 		url: 'http://www.ragi.al/item/iRO-Odin/ZDI/',
 		headers: {
 		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
@@ -26,30 +27,27 @@ app.get('/scrape', function(req, res){
 	        var $ = cheerio.load(html);
 
 	    var item, quantity, price;
-	    var json = { item : "", quantity : "", price : ""};
+	    var json1 = { item : "", quantity : "", price : ""};
 
 	    $('.mkt_left').filter(function(){
 	        var data = $('.mkt_left h1 a');
 	        item = data.text();         
-	        json.item = item;
+	        json1.item = item;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
 	        quantity = parseFloat(data.text());
-	        json.quantity = quantity;
+	        json1.quantity = quantity;
 
 	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
 	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
-	        json.price = price;
-	
+	        json1.price = price;
 	        
 	    })
 	}
 
-
-
-	res.send(json)
-
+	res.send(json1)
 	});
+
 })
 
 

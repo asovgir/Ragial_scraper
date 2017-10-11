@@ -5,33 +5,58 @@
 			var jsonRequestUrl = 'http://localhost:8081/scrape';
 
 			$(document).ready(function(){
-				$.getJSON(jsonRequestUrl,  function(json){
-					$('#itemName').append(json.item);
-					$('#itemPrice').append(json.price);
-					$('#itemQuantity').append(json.quantity);
+				
+				// JSON1
+				$.getJSON(jsonRequestUrl,  function(json1){
+					$('#itemName1').append(json1.item);
+					$('#itemPrice1').append(json1.price);
+					$('#itemQuantity1').append(json1.quantity);
 
-					if (json.price < 2199999){
+					if (json1.price < 2199999){
 						$('html').css("background-color", "green");
 					} else {
 						location.reload();
 					}
+				});
 
-				})
+
+
+
+
+
+
+
+
 			})
 		</script>
+		<style>
+		table, th, td {
+			border:1px solid black;
+		}
+		</style>
 		<title>Scraper</title>
 	</head>
 	<body>
-	<h1>Ragi Scraper</h1>
-		Item Name:
-		<div id="itemName"></div>
-		<p>
-		Item Price:
-		<div id="itemPrice"></div>
-		</p>
-		<p>
-		Item Quantity:
-		<div id="itemQuantity"></div>
-		</p>
+	<h1>Needed List</h1>
+		<table>
+			<tr>
+				<th>Item Name</th>
+				<th>Item Price</th>
+				<th>Item Quantity</th>
+				<th>URL</th>
+			</tr>
+			<tr>
+				<td><div id="itemName1"></div></td>
+				<td><div id="itemPrice1"></div></td>
+				<td><div id="itemQuantity1"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/ZDI/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemName2"></div></td>
+				<td><div id="itemPrice2"></div></td>
+				<td><div id="itemQuantity2"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/jRs/">Url</a></div></td>
+			</tr>
+		</table>
 	</body>
 </html>
