@@ -144,8 +144,8 @@ app.get('/scrape4', function(req, res){
 
 
 	var url = {
-		// Biotite
-		url: 'http://www.ragi.al/item/iRO-Odin/gRw/',
+		// Evil Druid
+		url: 'http://www.ragi.al/item/iRO-Odin/LRA/',
 		headers: {
 		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
 		}
@@ -188,7 +188,7 @@ app.get('/scrape5', function(req, res){
 
 
 	var url = {
-		// Biotite
+		// Cyfar
 		url: 'http://www.ragi.al/item/iRO-Odin/jRs/',
 		headers: {
 		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
@@ -268,8 +268,8 @@ app.get('/scrape6', function(req, res){
 
 	app.get('/scrape7', function(req, res){
 	var url = {
-		// Well-Dried Bone
-		url: 'http://www.ragi.al/item/iRO-Odin/ygI/',
+		// Firelock Soldier
+		url: 'http://www.ragi.al/item/iRO-Odin/QBA/',
 		headers: {
 		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
 		}
@@ -303,6 +303,164 @@ app.get('/scrape6', function(req, res){
 	res.send(json)
 	});
 })
+
+app.get('/scrape8', function(req, res){
+	var url = {
+		// Bubble Gum
+		url: 'http://www.ragi.al/item/iRO-Odin/ZjI/',
+		headers: {
+		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+		}
+	}
+
+	request(url, function(error, response, html){
+	    if(!error){
+	        var $ = cheerio.load(html);
+
+	    var item, quantity, price;
+	    var json = { vending : "", item : "", quantity : "", price : ""};
+
+	    $('.mkt_left').filter(function(){
+	        var data = $('.mkt_left h1 a');
+	        item = data.text();         
+	        json.item = item;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        quantity = parseFloat(data.text());
+	        json.quantity = quantity;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
+	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
+	        json.price = price;	        
+	    })
+	}
+	res.send(json)
+	});
+})
+
+app.get('/scrape9', function(req, res){
+	var url = {
+		// Zipper Bear
+		url: 'http://www.ragi.al/item/iRO-Odin/uRA/',
+		headers: {
+		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+		}
+	}
+
+	request(url, function(error, response, html){
+	    if(!error){
+	        var $ = cheerio.load(html);
+
+	    var item, quantity, price;
+	    var json = { vending : "", item : "", quantity : "", price : ""};
+
+	    $('.mkt_left').filter(function(){
+	        var data = $('.mkt_left h1 a');
+	        item = data.text();         
+	        json.item = item;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        quantity = parseFloat(data.text());
+	        json.quantity = quantity;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
+	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
+	        json.price = price;	        
+	    })
+	}
+	res.send(json)
+	});
+})
+
+app.get('/scrape10', function(req, res){
+	var url = {
+		// Oridecon
+		url: 'http://www.ragi.al/item/iRO-Odin/2AM/',
+		headers: {
+		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+		}
+	}
+
+	request(url, function(error, response, html){
+	    if(!error){
+	        var $ = cheerio.load(html);
+
+	    var item, quantity, price;
+	    var json = { vending : "", item : "", quantity : "", price : ""};
+
+	    $('.mkt_left').filter(function(){
+	        var data = $('.mkt_left h1 a');
+	        item = data.text();         
+	        json.item = item;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        quantity = parseFloat(data.text());
+	        json.quantity = quantity;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
+	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
+	        json.price = price;	        
+	    })
+	}
+	res.send(json)
+	});
+})
+
+app.get('/scrape11', function(req, res){
+	var url = {
+		// Elunium
+		url: 'http://www.ragi.al/item/iRO-Odin/2QM/',
+		headers: {
+		    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+		}
+	}
+
+	request(url, function(error, response, html){
+	    if(!error){
+	        var $ = cheerio.load(html);
+
+	    var item, quantity, price;
+	    var json = { vending : "", item : "", quantity : "", price : ""};
+
+	    $('.mkt_left').filter(function(){
+	        var data = $('.mkt_left h1 a');
+	        item = data.text();         
+	        json.item = item;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(1)');
+	        vending = data.text();
+	        json.vending = vending;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(2)');
+	        quantity = parseFloat(data.text());
+	        json.quantity = quantity;
+
+	        var data = $('#selltable tr.odd:nth-child(1) > td:nth-child(3) > a:nth-child(1)');
+	        price = parseFloat(data.text().replace(',','').replace(',','').replace(',','').replace(',',''));
+	        json.price = price;	        
+	    })
+	}
+	res.send(json)
+	});
+})
+
+
+
+
+
+
 })
 
 

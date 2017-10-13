@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<audio id="buzzer" src="chaching.wav" type="audio/wav"></audio>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			var jsonRequestUrl = 'http://localhost:8081/scrape';
@@ -9,13 +10,17 @@
 			var jsonRequestUrl5 = 'http://localhost:8081/scrape5';
 			var jsonRequestUrl6 = 'http://localhost:8081/scrape6';
 			var jsonRequestUrl7 = 'http://localhost:8081/scrape7';
+			var jsonRequestUrl8 = 'http://localhost:8081/scrape8';
+			var jsonRequestUrl9 = 'http://localhost:8081/scrape9';
+			var jsonRequestUrl10 = 'http://localhost:8081/scrape10';
+			var jsonRequestUrl11 = 'http://localhost:8081/scrape11';
 			var json1;
 			var count = 0;
 
 			$(document).ready(function(){
 				
 	
-				// JSON1
+				// JSON1 -> Battle Manual Box
 				$.ajax({
 					url: jsonRequestUrl,
 					async: false,
@@ -27,15 +32,16 @@
 						$('#itemQuantity1').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 1500000 & json.vending === "Vending Now") {
+						if (json1 > 0 & json1 < 2000001 & json.vending === "Vending Now") {
 							$('#itemName1, #itemPrice1, #itemQuantity1').css("background-color","green");
-							alert(json.item + ' price less than 2000000');
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 2000001');
 							count = 1;
 						}
 					}
 				});
 
-				// JSON2
+				// JSON2 -> Old Blue Box
 				$.ajax({
 					url: jsonRequestUrl2,
 					async: false,
@@ -49,6 +55,7 @@
 
 						if (json1 > 0 & json1 < 75001 & json.vending === "Vending Now") {
 							$('#itemName2, #itemPrice2, #itemQuantity2').css("background-color","green");
+							$('#buzzer').get(0).play();
 							alert(json.item + ' price less than 75001');
 							count = 1;
 						}
@@ -67,15 +74,16 @@
 						$('#itemQuantity3').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 450000 & json.vending === "Vending Now") {
+						if (json1 > 0 & json1 < 490001 & json.vending === "Vending Now") {
 							$('#itemName3, #itemPrice3, #itemQuantity3').css("background-color","green");
-							alert(json.item + ' price less than 450000');
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 490001');
 							count = 1;
 						}
 					}
 				});
 
-				// JSON4 -> Biotite
+				// JSON4 -> Evil Druid
 				$.ajax({
 					url: jsonRequestUrl4,
 					async: false,
@@ -87,9 +95,10 @@
 						$('#itemQuantity4').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 1950000 & json.vending === "Vending Now") {
+						if (json1 > 0 & json1 < 8000001 & json.vending === "Vending Now") {
 							$('#itemName4, #itemPrice4, #itemQuantity4').css("background-color","green");
-							alert(json.item + ' price less than 1950000');
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 8000001');
 							count = 1;
 						}
 					}
@@ -109,6 +118,7 @@
 
 						if (json1 > 0 & json1 < 1301 & json.quantity > 400 & json.vending === "Vending Now") {
 							$('#itemName5, #itemPrice5, #itemQuantity5').css("background-color","green");
+							$('#buzzer').get(0).play();
 							alert(json.item + ' price less than 1301 and quantity of ' + json.quantity );
 							count = 1;
 						}
@@ -129,13 +139,14 @@
 
 						if (json1 > 0 & json1 < 150001 & json.vending === "Vending Now") {
 							$('#itemName6, #itemPrice6, #itemQuantity6').css("background-color","green");
+							$('#buzzer').get(0).play();
 							alert(json.item + ' price less than 150001');
 							count = 1;
 						}
 					}
 				});
 
-				// JSON6 -> Emperium
+				// JSON7 -> Firelock Soldier
 				$.ajax({
 					url: jsonRequestUrl7,
 					async: false,
@@ -147,19 +158,109 @@
 						$('#itemQuantity7').append(json.quantity);
 						json1 = json.price;
 
-						if (json1 > 0 & json1 < 150001 & json.vending === "Vending Now") {
+						if (json1 > 0 & json1 < 7000001 & json.vending === "Vending Now") {
 							$('#itemName7, #itemPrice7, #itemQuantity7').css("background-color","green");
-							alert(json.item + ' price less than 150001');
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 7000001');
 							count = 1;
 						}
 					}
 				});
 
+				// JSON8 -> Bubble Gum
+				$.ajax({
+					url: jsonRequestUrl8,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemVending8').append(json.vending);
+						$('#itemName8').append(json.item);
+						$('#itemPrice8').append(json.price);
+						$('#itemQuantity8').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 2000001 & json.vending === "Vending Now") {
+							$('#itemName8, #itemPrice8, #itemQuantity8').css("background-color","green");
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 2000001');
+							count = 1;
+						}
+					}
+				});
+
+				// JSON9 -> Zipper Bear
+				$.ajax({
+					url: jsonRequestUrl9,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemVending9').append(json.vending);
+						$('#itemName9').append(json.item);
+						$('#itemPrice9').append(json.price);
+						$('#itemQuantity9').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 3000001 & json.vending === "Vending Now") {
+							$('#itemName9, #itemPrice9, #itemQuantity9').css("background-color","green");
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 3000001');
+							count = 1;
+						}
+					}
+				});
+
+				// JSON10 -> Oridecon
+				$.ajax({
+					url: jsonRequestUrl10,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemVending10').append(json.vending);
+						$('#itemName10').append(json.item);
+						$('#itemPrice10').append(json.price);
+						$('#itemQuantity10').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 60000 & json.vending === "Vending Now") {
+							$('#itemName10, #itemPrice10, #itemQuantity10').css("background-color","green");
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 60000');
+							count = 1;
+						}
+					}
+				});
+
+				// JSON11 -> Elunium
+				$.ajax({
+					url: jsonRequestUrl11,
+					async: false,
+					dataType: 'json',
+					success: function(json){
+						$('#itemVending11').append(json.vending);
+						$('#itemName11').append(json.item);
+						$('#itemPrice11').append(json.price);
+						$('#itemQuantity11').append(json.quantity);
+						json1 = json.price;
+
+						if (json1 > 0 & json1 < 44000 & json.vending === "Vending Now") {
+							$('#itemName11, #itemPrice11, #itemQuantity11').css("background-color","green");
+							$('#buzzer').get(0).play();
+							alert(json.item + ' price less than 44000');
+							count = 1;
+						}
+					}
+				});
+
+
+
+
+
+
 				if(count === 0) {
 				setTimeout(
 					function(){
-							// location.reload();
-					}, 3000);
+						 location.reload();
+					}, 15000);
 				}
 
 			}) // Close document.ready
@@ -210,7 +311,7 @@
 				<td><div id="itemName4"></div></td>
 				<td><div id="itemPrice4"></div></td>
 				<td><div id="itemQuantity4"></div></td>
-				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/gRw/">Url</a></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/LRA/">Url</a></div></td>
 			</tr>
 			<tr>
 				<td><div id="itemVending5"></div></td>
@@ -232,6 +333,34 @@
 				<td><div id="itemPrice7"></div></td>
 				<td><div id="itemQuantity7"></div></td>
 				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/ygI/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemVending8"></div></td>
+				<td><div id="itemName8"></div></td>
+				<td><div id="itemPrice8"></div></td>
+				<td><div id="itemQuantity8"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/ZjI/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemVending9"></div></td>
+				<td><div id="itemName9"></div></td>
+				<td><div id="itemPrice9"></div></td>
+				<td><div id="itemQuantity9"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/uRA/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemVending10"></div></td>
+				<td><div id="itemName10"></div></td>
+				<td><div id="itemPrice10"></div></td>
+				<td><div id="itemQuantity10"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/2AM/">Url</a></div></td>
+			</tr>
+			<tr>
+				<td><div id="itemVending11"></div></td>
+				<td><div id="itemName11"></div></td>
+				<td><div id="itemPrice11"></div></td>
+				<td><div id="itemQuantity11"></div></td>
+				<td><div id="itemUrl"><a href="http://www.ragi.al/item/iRO-Odin/2QM/">Url</a></div></td>
 			</tr>
 		</table>
 	</body>
